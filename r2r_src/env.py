@@ -1,9 +1,10 @@
 ''' Batched Room-to-Room navigation environment '''
 
 import sys
-sys.path.append('buildpy36')
-sys.path.append('Matterport_Simulator/build/')
-import MatterSim
+# sys.path.append('buildpy36')
+# sys.path.append('Matterport_Simulator/build/')
+# import MatterSim
+from wrapper import SimulatorWrapper
 import csv
 import numpy as np
 import math
@@ -47,7 +48,8 @@ class EnvBatch():
             self.vfov = 60
         self.sims = []
         for i in range(batch_size):
-            sim = MatterSim.Simulator()
+            # sim = MatterSim.Simulator()
+            sim = SimulatorWrapper()
             sim.setRenderingEnabled(False)
             sim.setDiscretizedViewingAngles(True)   # Set increment/decrement to 30 degree. (otherwise by radians)
             sim.setCameraResolution(self.image_w, self.image_h)

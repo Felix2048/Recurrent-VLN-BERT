@@ -3,8 +3,9 @@
 import os
 import sys
 import re
-sys.path.append('Matterport_Simulator/build/')
-import MatterSim
+# sys.path.append('Matterport_Simulator/build/')
+# import MatterSim
+from wrapper import SimulatorWrapper
 import string
 import json
 import time
@@ -337,13 +338,13 @@ def angle_feature(heading, elevation):
                     dtype=np.float32)
 
 def new_simulator():
-    import MatterSim
     # Simulator image parameters
     WIDTH = 640
     HEIGHT = 480
     VFOV = 60
 
-    sim = MatterSim.Simulator()
+    # sim = MatterSim.Simulator()
+    sim = SimulatorWrapper()
     sim.setRenderingEnabled(False)
     sim.setCameraResolution(WIDTH, HEIGHT)
     sim.setCameraVFOV(math.radians(VFOV))
