@@ -1,16 +1,17 @@
 # Recurrent VLN-BERT
 
-Code of the Recurrent-VLN-BERT paper:
+Code of the **CVPR 2021 Oral** paper:<br>
 **A Recurrent Vision-and-Language BERT for Navigation**<br>
 [**Yicong Hong**](http://www.yiconghong.me/), [Qi Wu](http://www.qi-wu.me/), [Yuankai Qi](https://sites.google.com/site/yuankiqi/home), [Cristian Rodriguez-Opazo](https://crodriguezo.github.io/), [Stephen Gould](http://users.cecs.anu.edu.au/~sgould/)<br>
 
-[[Paper & Appendices](https://arxiv.org/abs/2011.13922) | [GitHub](https://github.com/YicongHong/Recurrent-VLN-BERT)]
+[[Paper & Appendices](https://arxiv.org/abs/2011.13922)]:new::new::new: [[GitHub](https://github.com/YicongHong/Recurrent-VLN-BERT)]
 
 ## Prerequisites
 
 ### Installation
 
-Install the [Matterport3D Simulator](https://github.com/peteanderson80/Matterport3DSimulator).
+Install the [Matterport3D Simulator](https://github.com/peteanderson80/Matterport3DSimulator). Notice that this code uses the [old version (v0.1)](https://github.com/peteanderson80/Matterport3DSimulator/tree/v0.1) of the simulator, but you can easily change to the latest version which supports batches of agents and it is much more efficient.
+
 Please find the versions of packages in our environment [here](https://github.com/YicongHong/Recurrent-VLN-BERT/blob/main/recurrent-vln-bert.yml).
 
 Install the [Pytorch-Transformers](https://github.com/huggingface/transformers).
