@@ -9,11 +9,13 @@ from torch import nn
 import torch.nn.functional as F
 from torch.nn import CrossEntropyLoss, MSELoss
 
-from transformers.pytorch_transformers.modeling_bert import (BertEmbeddings,
+from transformers.models.bert.modeling_bert import (BertEmbeddings,
         BertSelfAttention, BertAttention, BertEncoder, BertLayer,
         BertSelfOutput, BertIntermediate, BertOutput,
-        BertPooler, BertLayerNorm, BertPreTrainedModel,
+        BertPooler, BertPreTrainedModel,
 		BertPredictionHeadTransform)
+
+BertLayerNorm = nn.LayerNorm
 
 logger = logging.getLogger(__name__)
 
@@ -185,7 +187,8 @@ class BertImgModel(BertPreTrainedModel):
         self.img_dim = config.img_feature_dim
         logger.info('BertImgModel Image Dimension: {}'.format(self.img_dim))
 
-        self.apply(self.init_weights)
+        # self.apply(self.init_weights)
+        self.init_weights()
 
     def forward(self, mode, input_ids, token_type_ids=None, attention_mask=None,
             position_ids=None, img_feats=None):
@@ -237,7 +240,8 @@ class VLNBert(BertPreTrainedModel):
         self.state_LayerNorm = BertLayerNorm(config.hidden_size, eps=config.layer_norm_eps)
 
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-        self.apply(self.init_weights)
+        # self.apply(self.init_weights)
+        self.init_weights()
 
     def forward(self, mode, input_ids, token_type_ids=None, attention_mask=None,
                 position_ids=None, img_feats=None):
